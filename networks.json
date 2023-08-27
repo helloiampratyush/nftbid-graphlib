@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "nftbid": {
+      "address": "0xEC635B270769d80DEe60c3f036A2d515dA5E42D0",
+      "startBlock": 4170395
+    }
+  }
+}

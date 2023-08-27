@@ -1,0 +1,41 @@
+type bidAnnounce @entity(immutable: true) {
+  id: Bytes!
+  nftAddress: Bytes! # address
+  tokenId: BigInt! # uint256
+  minPrice: BigInt! # uint256
+  bidStartTime: BigInt! # uint256
+  bidEndTime: BigInt! # uint256
+  owner: Bytes! # address
+}
+
+type bidDone @entity(immutable: true) {
+  id: ID!
+  nftAddress: Bytes! # address
+  tokenId: BigInt! # uint256
+  buyer: Bytes! # address
+}
+
+type bidtime @entity(immutable: true) {
+  id: Bytes!
+  nftAddress: Bytes! # address
+  tokenId: BigInt! # uint256
+  bidder: Bytes! # address
+  bidAmount: BigInt! # uint256
+  time: BigInt! # uint256
+}
+
+type itemListed @entity(immutable: true) {
+  id: ID!
+  seller: Bytes! # address
+  nftAddress: Bytes! # address
+  tokenId: BigInt! # uint256
+  minPrice: BigInt! # uint256
+}
+type activeItem @entity {
+  id: ID!
+  buyer: Bytes! # address
+  seller: Bytes! # address
+  nftAddress: Bytes! # address
+  tokenId: BigInt!
+  minPrice: BigInt
+}

@@ -1,0 +1,33 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: nftbid
+    network: sepolia
+    source:
+      address: "0xEC635B270769d80DEe60c3f036A2d515dA5E42D0"
+      abi: nftbid
+      startBlock: 4171893
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - bidAnnounce
+        - bidDone
+        - bidtime
+        - itemListed
+      abis:
+        - name: nftbid
+          file: nftbid/abis/nftbid.json
+      eventHandlers:
+        - event: bidAnnounce(indexed address,indexed uint256,uint256,uint256,uint256,address)
+          handler: handlebidAnnounce
+        - event: bidDone(indexed address,indexed uint256,address)
+          handler: handlebidDone
+        - event: bidtime(indexed address,indexed uint256,address,uint256,uint256)
+          handler: handlebidtime
+        - event: itemListed(indexed address,indexed address,indexed uint256,uint256)
+          handler: handleitemListed
+      file: nftbid/nftbid.wasm
